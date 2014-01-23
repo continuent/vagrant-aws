@@ -149,6 +149,8 @@ module VagrantPlugins
             do_elastic_ip(env, domain, server)
           end
 
+          #TEMP Hack to get around the problem with user_data not running
+          sleep 20
           if !env[:interrupted]
             env[:metrics]["instance_ssh_time"] = Util::Timer.time do
               # Wait for SSH to be ready.
